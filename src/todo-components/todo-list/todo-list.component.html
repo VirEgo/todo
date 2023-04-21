@@ -1,15 +1,8 @@
-<!-- <ng-container *ngIf="todos$">
-    <li *ngFor="let todo of todos$ | async">
-        <app-todo-item [todoData]="todo"></app-todo-item>
-    </li>
-</ng-container> -->
-
 <ng-container *ngIf="!todos$">
     <p>You haven't any todos</p>
 </ng-container>
 
-
-<table mat-table [dataSource]="(todos$)" class="mat-elevation-z8">
+<table mat-table [dataSource]="(todos$)" class="todos-table">
 
     <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->

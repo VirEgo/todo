@@ -1,17 +1,16 @@
 import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { Todo } from '../../app/app.component';
-import { TodoServiceService } from '../../app/services/todo-service.service';
+import { TodoServiceService } from '../../services/todo-service.service';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from "@angular/material/icon"
-
+import { MaterialUIModule } from 'src/material-module.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.scss'],
   standalone: true,
-  imports: [BrowserModule, FormsModule, MatButtonModule, MatIconModule],
+  imports: [BrowserAnimationsModule, BrowserModule, FormsModule, MaterialUIModule],
 })
 export class TodoItemComponent {
   @Input()
@@ -23,7 +22,8 @@ export class TodoItemComponent {
   isNeedToEdit: boolean = false;
 
   constructor(
-    private todoService: TodoServiceService
+    private todoService: TodoServiceService,
+
   ) { }
 
   isDoneToggle(id: number): void {
@@ -45,4 +45,6 @@ export class TodoItemComponent {
   editTodo(): void {
     this.isNeedToEdit = true;
   }
+
+
 }

@@ -1,9 +1,29 @@
-<div class="popup-wrapper">
+<!-- <div class="popup-wrapper">
   <div class="popup-header">
     <div class="title">{{title}}</div>
     <button class="close-btn" (click)="output.emit()">X</button>
   </div>
   <div class="popup-body">
+   
+
+  </div>
+  <div class="popup-footer">
+    <button class="done-btn" *ngIf="currentStep !== CreateTodoSteps.Label" (click)="nextStep()">Next</button>
+    <button class="done-btn" *ngIf="currentStep !== CreateTodoSteps.Title" (click)="prevStep()">Back</button>
+    <button class="done-btn" *ngIf="currentStep === CreateTodoSteps.Label" (click)="createTodo()">Create</button>
+  </div>
+</div> -->
+
+<div class="popup-wrapper">
+  <div class="popup-header">
+    <h2 mat-dialog-title>
+      {{data.title ? data.title:'Title'}}</h2>
+    <button mat-icon-button mat-dialog-close class="close-btn" (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="popup-body" mat-dialog-content>
     <div [ngSwitch]="currentStep">
       <ng-container *ngSwitchCase="CreateTodoSteps.Title">
         <div class="title">
@@ -19,11 +39,19 @@
         <label-selection></label-selection>
       </ng-container>
     </div>
+  </div>
+</div>
 
-  </div>
-  <div class="popup-footer">
-    <button class="done-btn" *ngIf="currentStep !== CreateTodoSteps.Label" (click)="nextStep()">Next</button>
-    <button class="done-btn" *ngIf="currentStep !== CreateTodoSteps.Title" (click)="prevStep()">Back</button>
-    <button class="done-btn" *ngIf="currentStep === CreateTodoSteps.Label" (click)="createTodo()">Create</button>
-  </div>
+
+
+
+
+<div mat-dialog-actions>
+
+  <button mat-button cdkFocusInitial color="primary" class="done-btn" *ngIf="currentStep !== CreateTodoSteps.Label"
+    (click)="nextStep()">Next</button>
+  <button mat-button color="warn" class="done-btn" *ngIf="currentStep !== CreateTodoSteps.Title"
+    (click)="prevStep()">Back</button>
+  <button mat-button color="accent" class="done-btn" *ngIf="currentStep === CreateTodoSteps.Label"
+    (click)="createTodo()">Create</button>
 </div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Todo } from 'src/app/app.component';
-import { TodoServiceService } from 'src/app/services/todo-service.service';
+import { TodoServiceService } from 'src/services/todo-service.service';
 
 @Component({
   selector: 'app-todo-list',

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { TodoServiceService } from "src/app/services/todo-service.service";
+import { TodoServiceService } from "src/services/todo-service.service";
 @Component({
     selector: 'color-label',
     templateUrl: './color-label.html',

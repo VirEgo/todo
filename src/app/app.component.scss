@@ -7,45 +7,12 @@
 .main-content {
   flex: 1;
   padding: 15px 0;
-}
-
-.todos-section {
-  ul {
-    padding: 0;
-    margin: 0;
+  height: 100%;
+  .container {
+    height: 100%;
   }
 }
 
-.list-wrapper {
-  flex: 1;
-}
-li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.input-block {
-  border-top: 1px solid #212121;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.create-todo {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: tomato;
-  border: none;
-  color: #fff;
-  font-size: 32px;
-  svg {
-    width: 25px;
-    height: 25px;
-    fill: #fff;
-  }
+.todos-wrapper {
+  height: 100%;
 }

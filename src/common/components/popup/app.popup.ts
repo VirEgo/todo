@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, EventEmitter, Output, ElementRef, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ElementRef, ViewContainerRef, Inject } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { Todo } from 'src/app/app.component';
 import { ViewChild } from '@angular/core';
-import { TodoServiceService } from 'src/app/services/todo-service.service';
+import { TodoServiceService } from 'src/services/todo-service.service';
 import { DateTime } from "luxon";
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 
 enum CreateTodoSteps {
@@ -16,7 +17,6 @@ enum CreateTodoSteps {
   selector: 'app.popup',
   templateUrl: './app.popup.html',
   styleUrls: ['./app.popup.scss'],
-
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
@@ -51,17 +51,20 @@ export class PopupComponent implements OnInit {
   newTodoDescription!: ElementRef<HTMLTextAreaElement>;
 
 
-  @Input() title = 'Create task';
   @Output() output = new EventEmitter();
-  constructor(private todoService: TodoServiceService,) { }
+  constructor(
+    private todoService: TodoServiceService,
+    public dialogRef: MatDialogRef<PopupComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-  }
+
 
   createTodo(): void {
     this.todoService.addTodos(this.todoService.newTodo);
-    this.output.emit()
+    // this.output.emit()
+    this.close()
   }
 
   nextStep() {
@@ -80,4 +83,9 @@ export class PopupComponent implements OnInit {
     this.currentStep = CreateTodoSteps.Title;
     console.log(this.newTodoTitle);
   }
+
+  close() {
+    this.dialogRef.close();
+  }
+
 }

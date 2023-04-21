@@ -11,6 +11,7 @@ import { ColorLabelComponent } from 'src/common/components/label-selection/color
 import { PopupHostDirective } from './popup-host.directive';
 import { CommonComponentsModule } from 'src/common/common.module';
 import { TodoComponentsModule } from 'src/todo-components/todo-components.module';
+import { MaterialUIModule } from 'src/material-module.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,9 @@ import { TodoComponentsModule } from 'src/todo-components/todo-components.module
     CommonModule,
     TodoComponentsModule,
     CommonComponentsModule,
+    MaterialUIModule
   ],
+  exports: [PopupComponent],
   bootstrap: [AppComponent],
   providers: []
 })

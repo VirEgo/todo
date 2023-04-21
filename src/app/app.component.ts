@@ -3,7 +3,7 @@ import { ComponentRef, ViewContainerRef } from '@angular/core';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PopupComponent } from 'src/common/components/popup/app.popup';
-import { TodoServiceService } from './services/todo-service.service';
+import { TodoServiceService } from '../services/todo-service.service';
 import { PopupHostDirective } from './popup-host.directive';
 
 import { DateTime } from "luxon";
