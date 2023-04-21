@@ -1,0 +1,13 @@
+.footer-wrapper {
+  padding: 15px 0;
+  border-top: 1px solid var(--bs-red);
+  ul {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+  }
+  li {
+    color: var(--bs-red);
+    cursor: pointer;
+  }
+}

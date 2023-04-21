@@ -1,18 +1,33 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PopupComponent } from '../common/components/popup/app.popup';
+import { LabelSelectionComponent } from 'src/common/components/label-selection/label-selection';
+import { ColorLabelComponent } from 'src/common/components/label-selection/color-label/color-label';
+import { PopupHostDirective } from './popup-host.directive';
+import { CommonComponentsModule } from 'src/common/common.module';
+import { TodoComponentsModule } from 'src/todo-components/todo-components.module';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PopupComponent,
+    LabelSelectionComponent,
+    ColorLabelComponent,
+    PopupHostDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    FormsModule,
+    CommonModule,
+    TodoComponentsModule,
+    CommonComponentsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: []
 })
 export class AppModule { }

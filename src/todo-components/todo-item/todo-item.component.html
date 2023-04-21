@@ -1,0 +1,38 @@
+<div class="todo-item">
+    <input type="checkbox" [(ngModel)]="todoData.isDone" />
+    <span *ngIf="!isNeedToEdit; else editingTodo" class="item-value"
+        [ngClass]="{'done': todoData.isDone, 'important': todoData.important}" (click)="isDoneToggle(todoData.id)">
+        {{todoData.title}}</span>
+    <span class="example-spacer" *ngIf="false"></span>
+
+
+    <ng-template #editingTodo>
+        <div class="idt-input">
+            <label>Type new value</label>
+            <input matInput #newTodoValue type="text" [(ngModel)]="todoData.title" aria-label="New iten">
+            <button button matSuffix icon-button aria-label="Clear" (click)="todoData.title=''">
+                close
+            </button>
+        </div>
+
+
+        <div class="editing-btn-group">
+            <button icon-button (click)="saveEditedTodo(todoData.id)">
+                save
+            </button>
+        </div>
+    </ng-template>
+
+    <div class="btn-group" *ngIf="!isNeedToEdit">
+        <button mat-icon-button color="primary" [disabled]="todoData.isDone" (click)="editTodo()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="accent" [disabled]="todoData.isDone" (click)="markImportant(todoData.id)">
+            <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteTodo(todoData.id)">
+            <mat-icon>delete</mat-icon>
+        </button>
+
+    </div>
+</div>

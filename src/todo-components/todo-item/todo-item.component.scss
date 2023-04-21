@@ -1,0 +1,29 @@
+:host {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    user-select: none;
+    cursor: pointer;
+}
+.todo-item {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25px 1fr 140px;
+    align-items: center;
+}
+span {
+    &.done {
+        text-decoration: line-through;
+    }
+    &.important {
+        font-weight: bold;
+    }
+}
+
+.btn-group {
+    display: flex;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
